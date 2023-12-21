@@ -1,8 +1,8 @@
 <!-- ====== Footer Section Start -->
-<footer class="bg-gray-200 dark:bg-slate-800 py-10 relative z-10">
+<footer class="bg-gray-200 dark:bg-slate-800 py-10 sm:relative">
     <div class="container">
         <div class="flex flex-wrap justify-between">
-            <span class="inline-flex items-center text-xl">Find me on the other platforms</span>
+            <span class="inline-flex items-center text-xl">{{__('home.footer_socials')}}</span>
             <x-social-icons class="mb-0"></x-social-icons>
         </div>
 

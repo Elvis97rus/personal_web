@@ -2,24 +2,23 @@
 
 namespace App\View\Components\Layout;
 
+use App\Enums\LanguageLocale;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class Navbar extends Component
 {
-    public array $navigationItems = [];
-
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(public array $navigationItems = [])
     {
         $this->navigationItems = [
             ['label' => 'About', 'href' => '#about'],
             ['label' => 'Projects', 'href' => '#portfolio'],
-            ['label' => 'Coding Tutorials', 'href' => '#tutorials'],
-            ['label' => 'Contact', 'href' => '#contact'],
+            ['label' => 'Skills', 'href' => '#skills'],
+            ['label' => 'Contact', 'href' => '#contacts'],
         ];
     }
 

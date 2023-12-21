@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::post('/contact/submit', [\App\Http\Controllers\ContactController::class, 'submit']);
+
+Route::get('language/{locale}', [\App\Http\Controllers\LanguageController::class, 'switchLanguage']);

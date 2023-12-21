@@ -1,15 +1,14 @@
 <!-- ====== Contact Section Start -->
-<section id="contacts" class="dark:bg-primary relative z-10 overflow-hidden bg-white py-20 lg:py-[120px]">
+<section id="contacts" class="dark:bg-primary sm:relative overflow-hidden bg-white py-20 lg:py-[120px]">
     <div class="container mx-auto">
         <div class="-mx-4 flex flex-wrap lg:justify-between">
             <div class="w-full px-4 lg:w-1/2 xl:w-6/12">
                 <div class="mb-12 max-w-[570px] lg:mb-0">
                     <h2 class="text-dark dark:text-gray-100 mb-6 text-[32px] font-bold uppercase sm:text-[40px] lg:text-[36px] xl:text-[40px]">
-                        FOR BUSINESS INQUIRES
+                        {{__('home.contact_heading')}}
                     </h2>
                     <p class="text-body-color dark:text-gray-200 mb-9 text-base leading-relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius
-                        tempor incididunt ut labore et dolore magna aliqua.
+                        {{__('home.contact_body')}}
                     </p>
                     <div class="mb-8 flex w-full max-w-[370px]">
                         <div class="dark:text-gray-400 bg-primary text-primary mr-6 flex h-[60px] w-full max-w-[60px] items-center
@@ -25,19 +24,20 @@
                             </svg>
                         </div>
                         <div class="w-full">
-                            <h4 class="dark:text-gray-200 text-dark mb-1 text-xl font-bold">Email Address</h4>
+                            <h4 class="dark:text-gray-200 text-dark mb-1 text-xl font-bold">{{ __('home.contact_body_email')}}</h4>
                             <p class="dark:text-gray-300 text-body-color text-base">info@yourdomain.com</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="w-full px-4 lg:w-1/2 xl:w-5/12">
-                <div class="dark:bg-slate-900 relative rounded-lg bg-white p-8 shadow-lg sm:p-12">
+                <div class="dark:bg-slate-900 sm:relative rounded-lg bg-white p-8 shadow-lg sm:p-12">
                     <form action="/contact/submit" method="POST" x-data="{
                         formData: {
                             name: '',
                             email: '',
-                            message: ''
+                            message: '',
+                            type: 'footer-form'
                         },
                         errors: {},
                         disabled: false,
@@ -65,7 +65,8 @@
                                 this.formData = {
                                     name: '',
                                     email: '',
-                                    message: ''
+                                    message: '',
+                                    type: 'footer-form'
                                 };
                                 this.successMessage = 'Thanks for your contact request. I will get back to you shortly.';
                                 this.disabled = false;
@@ -85,21 +86,21 @@
                         </template>
                         @csrf
                         <div class="mb-6">
-                            <x-forms.input placeholder="Your name" name="name" x-model="formData.name"
+                            <x-forms.input placeholder="{{__('home.contact_form_name')}}" name="name" x-model="formData.name"
                                            ::class="errors.name ? 'border-red-500 focus:border-red-500' : ''"></x-forms.input>
                             <template x-if="errors.name">
                                 <div x-text="errors.name[0]" class="text-red-500"></div>
                             </template>
                         </div>
                         <div class="mb-6">
-                            <x-forms.input type="email" placeholder="Your email" name="email" x-model="formData.email"
+                            <x-forms.input type="email" placeholder="{{__('home.contact_form_email')}}" name="email" x-model="formData.email"
                                            ::class="errors.email ? 'border-red-500 focus:border-red-500' : ''"></x-forms.input>
                             <template x-if="errors.email">
                                 <div x-text="errors.email[0]" class="text-red-500"></div>
                             </template>
                         </div>
                         <div class="mb-6">
-                            <x-forms.textarea placeholder="Your message" name="message" rows=6 x-model="formData.message"
+                            <x-forms.textarea placeholder="{{__('home.contact_form_msg')}}" name="message" rows=6 x-model="formData.message"
                                               ::class="errors.message ? 'border-red-500 focus:border-red-500' : ''"></x-forms.textarea>
                             <template x-if="errors.message">
                                 <div x-text="errors.message[0]" class="text-red-500"></div>
@@ -107,7 +108,7 @@
                         </div>
                         <div>
                             <x-button class="w-full" @click.prevent="submitForm" x-bind:disabled="disabled">
-                                Send Message
+                                {{__('home.contact_form_btn')}}
                             </x-button>
                         </div>
                     </form>
@@ -136,24 +137,3 @@
         </div>
     </div>
 </section>
-<!-- ====== Contact Section End -->
-{{--<div class="mb-6">--}}
-{{--    <input--}}
-{{--        type="text"--}}
-{{--        placeholder="Your Phone"--}}
-{{--        class="text-body-color border-[f0f0f0] focus:border-primary w-full rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"--}}
-{{--    />--}}
-{{--</div>--}}
-{{--<div class="mb-6">--}}
-{{--                          <textarea--}}
-{{--                              rows="6"--}}
-{{--                              placeholder="Your Message"--}}
-{{--                              class="text-body-color border-[f0f0f0] focus:border-primary w-full resize-none rounded border py-3 px-[14px] text-base outline-none focus-visible:shadow-none"--}}
-{{--                          ></textarea>--}}
-{{--</div>--}}
-{{--<div>--}}
-{{--    <button type="submit"--}}
-{{--            class="bg-primary border-primary w-full rounded border p-3 text-white transition hover:bg-opacity-90">--}}
-{{--        Send Message--}}
-{{--    </button>--}}
-{{--</div>--}}
