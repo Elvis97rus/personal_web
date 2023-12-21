@@ -11,7 +11,7 @@ class PortfolioItem extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $title, public array $categories, public string $image, public string $link)
+    public function __construct(public string $title, public string $description, public array $categories, public string $image, public string $link)
     {
         //
     }

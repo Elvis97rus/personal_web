@@ -9,7 +9,7 @@
         <x-button-link href="#skills" variant="dark" class="rounded-md mr-3">
         {{__('home.cta_left_btn')}}
         </x-button-link>
-        <x-button-link href="#contacts" variant="red">
+        <x-button-link href="#contacts" variant="red" class="rounded-md hover:scale-105 transition-all delay-50">
         {{__('home.cta_right_btn')}}
         </x-button-link>
     </x-slot>
