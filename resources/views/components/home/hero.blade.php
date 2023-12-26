@@ -5,7 +5,7 @@
             <div class="w-full px-4 lg:w-5/12">
                 <div class="hero-content">
                     <h1
-                        class="text-dark dark:text-gray-200 mb-6 text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[42px] active:rounded-md active:text-amber-600"
+                        class="text-dark dark:text-gray-200 mb-6 text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[42px] "
                     >
                         {!! __('home.hero_heading') !!}
                         <span class="rounded-md text-amber-600"> {{ __('home.hero_heading_last') }}</span>.

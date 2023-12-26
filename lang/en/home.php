@@ -11,10 +11,12 @@
         'cta_left_btn' => "Skills & Experience",
         'cta_right_btn' => "Message me",
         'contact_heading' => "FOR BUSINESS INQUIRES",
-        'contact_body' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eius tempor incididunt ut labore et dolore magna aliqua.",
+        'contact_body' => "Describe your problem or request in as much detail as possible to give me an understanding of the situation. Please provide your @Telegram_nickname for faster communication",
         'projects_body' => "You grow more intensively when you build your own projects, implement new knowledge and try new approaches to replace old ones. Curiosity is the engine of progress.",
 
         'contact_body_email' => "Email Address",
+        'contact_form_success' => "Thank you for your appeal. For urgent communication use Telegram.",
+        'contact_form_error_often' => "Your last message was at :time. Message sending restriction is set to 6 hours after each sending.",
         'contact_form_name' => "Your Name",
         'contact_form_email' => "Your Email",
         'contact_form_msg' => "Your Message",

@@ -42,6 +42,7 @@
                         errors: {},
                         disabled: false,
                         successMessage: '',
+                        errorMessage: '',
                         submitForm(event) {
                             this.disabled = true;
                             this.successMessage = '';
@@ -62,14 +63,20 @@
                                 throw response;
                             })
                             .then(result => {
-                                this.formData = {
-                                    name: '',
-                                    email: '',
-                                    message: '',
-                                    type: 'footer-form'
-                                };
-                                this.successMessage = 'Thanks for your contact request. I will get back to you shortly.';
+                                if (!result.success){
+                                    this.errorMessage = result.message;
+                                }else{
+                                    this.formData = {
+                                        name: '',
+                                        email: '',
+                                        message: '',
+                                        type: 'footer-form'
+                                    };
+                                    this.successMessage = result.message;
+                                }
                                 this.disabled = false;
+
+                                console.log(result)
                             })
                             .catch(async (response) => {
                                 const res = await response.json();
@@ -83,6 +90,9 @@
                     }">
                         <template x-if="successMessage">
                             <div x-text="successMessage" class="py-4 px-6 bg-green-600 text-gray-100 mb-4"></div>
+                        </template>
+                        <template x-if="errorMessage">
+                            <div x-text="errorMessage" class="py-4 px-6 bg-red-600 text-gray-100 mb-4"></div>
                         </template>
                         @csrf
                         <div class="mb-6">

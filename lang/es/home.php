@@ -11,10 +11,12 @@
         'cta_left_btn' => "Habilidades & experiencia",
         'cta_right_btn' => "Deja un mensaje",
         'contact_heading' => "PARA CUESTIONES COMERCIALES",
-        'contact_body' => "Por favor, indique su consulta y los detalles de la misma lo más detalladamente posible en el formulario.",
+        'contact_body' => "Describa su problema o consulta con el mayor detalle posible para hacerme una idea de la situación. Indique su @nombre_de_nombre_del_telegrama para una comunicación más rápida.",
         'projects_body' => "Creces más intensamente cuando construyes tus propios proyectos, pones en práctica nuevos conocimientos y pruebas nuevos enfoques para sustituir a los antiguos. La curiosidad es el motor del progreso.",
 
         'contact_body_email' => "Correo electrónico",
+        'contact_form_success' => "Gracias por su confianza. Para mensajes urgentes, por favor utilice Telegram.",
+        'contact_form_error_often' => "Su último mensaje fue enviado a las :time. El límite de envío está fijado en 6 horas después de cada envío.",
         'contact_form_name' => "Su nombre",
         'contact_form_email' => "Su correo",
         'contact_form_msg' => "Describa su consulta o problema con el mayor detalle posible.",
