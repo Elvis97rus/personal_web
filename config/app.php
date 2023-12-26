@@ -18,6 +18,9 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'telegram_chat_id' => env('TELEGRAM_PERSONAL_CHANNEL_ID', ''),
+    'telegram_bot_api' => env('TELEGRAM_BOT_API', ''),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

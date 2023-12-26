@@ -5,7 +5,10 @@ namespace App\Console\Commands;
 use App\Enums\LanguageLocale;
 use App\Models\MediaItem;
 use App\Models\Project;
+use App\Models\Question;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class TestCommand extends Command
 {
@@ -30,6 +33,10 @@ class TestCommand extends Command
     {
 //        var_dump(serialize(MediaItem::skills()->get()->toArray()));
 
-        dd(LanguageLocale::cases());
+//        dd(LanguageLocale::cases());
+//        $q = Question::find(2);
+//        $this->info(print_r($q->category->title, 1));
+//
+        dd(intval(null));
     }
 }

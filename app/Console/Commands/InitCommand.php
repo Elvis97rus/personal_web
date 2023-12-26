@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Experience;
 use App\Models\MediaItem;
 use App\Models\Project;
+use App\Models\Question;
 use Illuminate\Console\Command;
 
 class InitCommand extends Command
@@ -95,5 +96,14 @@ class InitCommand extends Command
             $this->info($item['date'] . ' updated.');
         }
 
+        $questions = \App\Helpers\Question::getQuestionList();
+        foreach ($questions as $item){
+            $q = Question::updateOrCreate([
+                'question' => $item['question'],
+                'lang' => $item['lang'],
+            ], $item);
+
+            $this->info("created/updated Question with id: " . $q->id );
+        }
     }
 }
