@@ -11,7 +11,8 @@
             title: '',
             tags: '',
             image: '',
-            description: ''
+            description: '',
+            link: ''
           },
           selectedTab: 'all',
           activeClasses: 'bg-primary text-white',
@@ -73,17 +74,26 @@
         x-show="modal.open"
         x-cloak
         x-transition
-        class="fixed sm:top-0 top-20 z-100 left-0 flex items-center justify-center w-full sm:h-full min-h-0 sm:min-h-screen overflow-x-auto px-4 py-5 bg-dark/90"
+        class="fixed sm:top-0 top-20 z-10 left-0 flex items-center justify-center w-full sm:h-full min-h-0 sm:min-h-screen overflow-x-auto px-4 py-5 bg-dark/90"
     >
         <div
             @click.outside="modal.open = false"
             class="w-full max-w-[570px] rounded-[20px] bg-white dark:bg-dark-2 py-12 px-8 text-center md:py-[60px] md:px-[70px]"
         >
             <div class="overflow-hidden rounded-lg py-4">
-                <img :src="modal.image"
-                     alt="portfolio"
-                     class="w-full h-[260px] object-cover"
-                />
+
+                <div x-show="modal.image">
+                    <div class="gallery">
+                        <template x-for="img in modal.image">
+                            <template x-if="img.length">
+                                <img :src=`/storage/${img}`
+                                     alt="portfolio"
+                                     class="w-full h-[260px] object-contain py-4 rounded-md"
+                                />
+                            </template>
+                        </template>
+                    </div>
+                </div>
             </div>
             <span class="text-primary mb-2 block text-sm font-semibold" x-text="modal.tags">
             </span>

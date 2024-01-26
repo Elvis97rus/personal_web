@@ -35,9 +35,9 @@ class ProjectResource extends Resource
                     ->searchable()
                     ->multiple(),
                 Forms\Components\Toggle::make('active')->default(true),
-                Forms\Components\Textarea::make('content')->nullable(),
+                Forms\Components\MarkdownEditor::make('content')->nullable(),
                 Forms\Components\TextInput::make('position')->default(0),
-                Forms\Components\FileUpload::make('file')->nullable(),
+                Forms\Components\FileUpload::make('file')->multiple()->nullable(),
 
             ]);
     }
@@ -46,18 +46,26 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('position')->sortable(),
-                Tables\Columns\TextColumn::make('lang')->sortable(),
-                Tables\Columns\TextColumn::make('title')->searchable(['title'])->sortable(),
-                Tables\Columns\ToggleColumn::make('active')->sortable(),
-                Tables\Columns\ImageColumn::make('file')->sortable(),
+                Tables\Columns\TextColumn::make('position')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('lang')
+                    ->sortable(),
+                Tables\Columns\ToggleColumn::make('active')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('title')
+                    ->searchable(['title'])->sortable(),
+                Tables\Columns\ImageColumn::make('file')
+                    ->sortable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
