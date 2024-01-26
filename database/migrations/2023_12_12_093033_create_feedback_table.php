@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
-            $table->string('type', 500)->index();
-            $table->string('name', 500)->index();
-            $table->string('email', 500)->index();
-            $table->string('message', 2000)->index();
+            $table->string('type', 100)->index();
+            $table->string('name', 200)->index();
+            $table->string('email', 200)->index();
+            $table->string('message', 2000)->nullable();
             $table->timestamps();
         });
     }

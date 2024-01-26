@@ -13,7 +13,7 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'active', 'content', 'position', 'file', 'lang'];
+    protected $fillable = ['title', 'active', 'content', 'position', 'link', 'file', 'lang'];
 
     public function scopeActive($query)
     {

@@ -26,8 +26,8 @@ class Portfolio extends Component
                 'title' => $item->title,
                 'description' => $item->content,
                 'category' => $categories,
-                'image' => 'https://place-hold.it/370x300',
-                'link' => '#',
+                'image' => $item->file ?? 'https://place-hold.it/370x300',
+                'link' =>  $item->link ?? '#',
             ];
         }
 

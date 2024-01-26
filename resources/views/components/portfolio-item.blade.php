@@ -2,12 +2,14 @@
     x-data="{
         modalDescription: {{json_encode($description)}},
         modalTitle: {{json_encode($title)}},
+        modalLink: {{json_encode($link)}},
         image: {{json_encode($image) ?? 'https://place-hold.it/370x300'}},
         categories: {{json_encode($categories)}},
         fire() {
             modal.open = !modal.open;
             modal.tags = this.categories;
-            modal.image = this.image;
+            modal.image = JSON.parse(this.image);
+            modal.link = this.modalLink;
             modal.title = this.modalTitle;
             modal.description = this.modalDescription;
         }
@@ -16,10 +18,10 @@
     class="w-full px-4 md:w-1/2 xl:w-1/3">
     <div class="relative mb-12">
         <a href="{{$link}}" target="_blank" @click.prevent="fire">
-            <div class="overflow-hidden rounded-lg ease-in duration-100 hover:scale-105">
-                <img src="{{$image}}"
-                    alt="portfolio"
-                    class="w-full h-[260px] object-cover"
+            <div class="w-full h-[260px] overflow-hidden rounded-lg ease-in duration-100 hover:scale-105">
+                <img :src="'/storage/' + JSON.parse(image).pop()"
+                     alt="{{$title}} image alt"
+                     class="w-full h-[260px] object-contain"
                 />
             </div>
         </a>
