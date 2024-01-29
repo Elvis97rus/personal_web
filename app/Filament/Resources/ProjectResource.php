@@ -27,7 +27,8 @@ class ProjectResource extends Resource
                 Forms\Components\TextInput::make('title')
                     ->required()
                     ->maxLength(500),
-
+                Forms\Components\TextInput::make('link')
+                    ->maxLength(500),
                 Forms\Components\TextInput::make('lang'),
                 Forms\Components\Select::make('category_id')
                     ->label('Теги')
@@ -35,9 +36,9 @@ class ProjectResource extends Resource
                     ->searchable()
                     ->multiple(),
                 Forms\Components\Toggle::make('active')->default(true),
-                Forms\Components\MarkdownEditor::make('content')->nullable(),
                 Forms\Components\TextInput::make('position')->default(0),
                 Forms\Components\FileUpload::make('file')->multiple()->nullable(),
+                Forms\Components\RichEditor::make('content')->nullable()->columnSpanFull(),
 
             ]);
     }

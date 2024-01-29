@@ -74,7 +74,7 @@
         x-show="modal.open"
         x-cloak
         x-transition
-        class="fixed sm:top-0 top-20 z-10 left-0 flex items-center justify-center w-full sm:h-full min-h-0 sm:min-h-screen overflow-x-auto px-4 py-5 bg-dark/90"
+        class="fixed sm:top-0 top-20 z-20 left-0 flex items-center justify-center w-full sm:h-full min-h-0 sm:min-h-screen overflow-x-auto px-4 py-5 bg-dark/90"
     >
         <div
             @click.outside="modal.open = false"
@@ -83,12 +83,12 @@
             <div class="overflow-hidden rounded-lg py-4">
 
                 <div x-show="modal.image">
-                    <div class="gallery">
+                    <div class="gallery flex flex-wrap ">
                         <template x-for="img in modal.image">
                             <template x-if="img.length">
                                 <img :src=`/storage/${img}`
                                      alt="portfolio"
-                                     class="w-full h-[260px] object-contain py-4 rounded-md"
+                                     class="w-full max-h-[360px] object-contain py-4 rounded-md"
                                 />
                             </template>
                         </template>
@@ -105,7 +105,7 @@
             <span
                 class="mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary"
             ></span>
-            <p  x-text="modal.description"
+            <p  x-html="modal.description"
                 class="mb-10 text-base leading-relaxed text-body-color dark:text-dark-6"
             >
             </p>

@@ -33,4 +33,10 @@ class CreateProject extends CreateRecord
             }
         }
     }
+
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['file'] = json_encode($data['file']);
+        return $data;
+    }
 }

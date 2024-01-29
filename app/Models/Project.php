@@ -15,6 +15,8 @@ class Project extends Model
 
     protected $fillable = ['title', 'active', 'content', 'position', 'link', 'file', 'lang'];
 
+//    protected $casts = [ 'file' => 'json', ];
+
     public function scopeActive($query)
     {
         return $query->where('active', true);
