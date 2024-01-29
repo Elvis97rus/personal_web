@@ -23,14 +23,24 @@ class ExperienceResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('date'),
-                Forms\Components\TextInput::make('lang'),
-                Forms\Components\TextInput::make('position'),
-                Forms\Components\Textarea::make('heading'),
-                Forms\Components\Textarea::make('stack'),
-                Forms\Components\Textarea::make('tasks'),
-                Forms\Components\Textarea::make('skills'),
-                Forms\Components\Toggle::make('active')
+                Forms\Components\Section::make('')->schema([
+                    Forms\Components\Group::make()
+                        ->schema([
+                            Forms\Components\TextInput::make('date'),
+                            Forms\Components\Textarea::make('heading')->rows(1),
+                    ])->columns(2),
+
+
+                    Forms\Components\Group::make()
+                        ->schema([
+                            Forms\Components\Textarea::make('stack')->rows(3),
+                            Forms\Components\Textarea::make('tasks')->rows(3),
+                            Forms\Components\Textarea::make('skills')->rows(3),
+                            Forms\Components\TextInput::make('position'),
+                            Forms\Components\TextInput::make('lang'),
+                            Forms\Components\Toggle::make('active')
+                        ])->columns(3)
+                ])
             ]);
     }
 
@@ -47,7 +57,11 @@ class ExperienceResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

@@ -24,20 +24,24 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')
-                    ->required()
-                    ->maxLength(500),
+                Forms\Components\Section::make('')->schema([
+                    Forms\Components\TextInput::make('title')
+                        ->required()
+                        ->maxLength(500),
+                    Forms\Components\TextInput::make('link')
+                        ->maxLength(500),
+                    Forms\Components\TextInput::make('lang'),
+                    Forms\Components\Select::make('category_id')
+                        ->label('Теги')
+                        ->options(Category::all()->pluck('title', 'id'))
+                        ->searchable()
+                        ->multiple(),
 
-                Forms\Components\TextInput::make('lang'),
-                Forms\Components\Select::make('category_id')
-                    ->label('Теги')
-                    ->options(Category::all()->pluck('title', 'id'))
-                    ->searchable()
-                    ->multiple(),
-                Forms\Components\Toggle::make('active')->default(true),
-                Forms\Components\MarkdownEditor::make('content')->nullable(),
-                Forms\Components\TextInput::make('position')->default(0),
-                Forms\Components\FileUpload::make('file')->multiple()->nullable(),
+                    Forms\Components\TextInput::make('position')->default(0),
+                    Forms\Components\FileUpload::make('file')->multiple()->nullable(),
+                    Forms\Components\Toggle::make('active')->default(true),
+                    Forms\Components\RichEditor::make('content')->nullable()->columnSpanFull(),
+                ])->columns(3),
 
             ]);
     }
@@ -46,16 +50,20 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('position')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('lang')
-                    ->sortable(),
+
                 Tables\Columns\ToggleColumn::make('active')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('title')
-                    ->searchable(['title'])->sortable(),
-                Tables\Columns\ImageColumn::make('file')
+                    ->searchable(['title'])
+                    ->limit(50)
                     ->sortable(),
+
+                Tables\Columns\TextColumn::make('lang')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('position')
+                    ->sortable(),
+//                Tables\Columns\ImageColumn::make('file')
+//                    ->sortable(),
             ])
             ->filters([
                 //
@@ -69,7 +77,8 @@ class ProjectResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ])
+            ->defaultSort('active', 'desc');
     }
 
     public static function getRelations(): array

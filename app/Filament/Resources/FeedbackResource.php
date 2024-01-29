@@ -23,13 +23,15 @@ class FeedbackResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\DateTimePicker::make('created_at'),
-                Forms\Components\TextInput::make('name'),
-                Forms\Components\TextInput::make('email'),
-                Forms\Components\TextInput::make('type'),
-                Forms\Components\Textarea::make('message'),
-                Forms\Components\DateTimePicker::make('updated_at'),
 
+                Forms\Components\Section::make('')->schema([
+                    Forms\Components\TextInput::make('name'),
+                    Forms\Components\TextInput::make('email'),
+                    Forms\Components\DateTimePicker::make('created_at'),
+                    Forms\Components\DateTimePicker::make('updated_at'),
+                    Forms\Components\TextInput::make('type'),
+                    Forms\Components\Textarea::make('message')->columnSpanFull(),
+                ])->columns(2)
             ]);
     }
 
@@ -47,7 +49,11 @@ class FeedbackResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

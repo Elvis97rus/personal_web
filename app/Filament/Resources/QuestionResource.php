@@ -26,8 +26,8 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Grid::make(3)
-                    ->schema([
+
+                Forms\Components\Section::make('')->schema([
                         Forms\Components\TextInput::make('position')
                             ->label('Позиция'),
                         Forms\Components\TextInput::make('lang')
@@ -39,12 +39,12 @@ class QuestionResource extends Resource
                             ->searchable(),
                         Forms\Components\Toggle::make('active')
                             ->label('Активно'),
-                    ]),
 
-                Forms\Components\RichEditor::make('question')
-                    ->label('Вопрос'),
-                Forms\Components\RichEditor::make('answer')
-                    ->label('Ответ'),
+                    Forms\Components\RichEditor::make('question')
+                        ->label('Вопрос')->columnSpanFull(),
+                    Forms\Components\RichEditor::make('answer')
+                        ->label('Ответ')->columnSpanFull()
+                    ])->columns(2),
             ]);
     }
 
@@ -59,10 +59,10 @@ class QuestionResource extends Resource
 //                    ->label('Активно')
 //                    ->sortable(),
                 Tables\Columns\TextColumn::make('question')
-                    ->label('Вопрос')
+                    ->label('Вопрос')->limit(25)
                     ->sortable()->searchable(['question', 'answer']),
                 Tables\Columns\TextColumn::make('answer')
-                    ->label('Ответ'),
+                    ->label('Ответ')->limit(60),
                 Tables\Columns\TextColumn::make('lang')
                     ->label('Язык')
                     ->sortable(),
@@ -75,7 +75,11 @@ class QuestionResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

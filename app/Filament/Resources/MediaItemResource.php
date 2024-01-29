@@ -23,12 +23,15 @@ class MediaItemResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('key')->maxLength(100)->default('skill-icon'),
-                Forms\Components\TextInput::make('title')->maxLength(500),
-                Forms\Components\Toggle::make('active')->default(true),
-                Forms\Components\Textarea::make('content'),
-                Forms\Components\TextInput::make('position')->default(1),
-                Forms\Components\FileUpload::make('file'),
+
+                Forms\Components\Section::make('')->schema([
+                    Forms\Components\TextInput::make('key')->maxLength(100)->default('skill-icon'),
+                    Forms\Components\TextInput::make('title')->maxLength(500),
+                    Forms\Components\TextInput::make('position')->default(1),
+                    Forms\Components\FileUpload::make('file'),
+                    Forms\Components\Toggle::make('active')->default(true),
+                    Forms\Components\Textarea::make('content')->columnSpanFull(),
+                ])->columns(2)
             ]);
     }
 
@@ -45,12 +48,16 @@ class MediaItemResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\ActionGroup::make([
+                    Tables\Actions\ViewAction::make(),
+                    Tables\Actions\EditAction::make(),
+                    Tables\Actions\DeleteAction::make(),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ]);
+            ])
+            ->defaultSort('active', 'desc');
     }
 
     public static function getRelations(): array
