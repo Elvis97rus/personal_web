@@ -30,9 +30,11 @@
         'Skills' => "Skills",
         'Contact' => "Contacts",
         'menu_language' => "Language",
-        'hero_heading' => 'My name is ArtemSh <br />I am a <span class="rounded-md text-amber-600">fullstack web-developer</span>.',
-        'hero_body' => 'I am a web-developer with 9+ years of experience in total. <br>Ready to offer you help with website development or give you advice when planning to build a website. <br>So just click <a class="text-primary font-bold no-underline hover:underline underline-offset-2 decoration-2 decoration-primary" href="https://t.me/Kai_z" target="_blank">the button</a> and let\'s start our conversation in Telegram. In the message indicate the flag "from personal site", this will let me know from what source you got my contact',
+        'hero_heading' => 'My name is ArtemSh <br />I am a ',
+        'hero_heading_last' => '<span class="rounded-md text-amber-600">fullstack web-developer</span>.',
+        'hero_body' => 'I am a web-developer with 9+ years of experience in total. <br>My current stack is Laravel(PHP) + VueJs(JS)<br>Ready to offer you help with website development or give you advice when planning to build a website. <br>So just click <a class="text-primary font-bold no-underline hover:underline underline-offset-2 decoration-2 decoration-primary" href="https://t.me/Kai_z" target="_blank">the button</a> and let\'s start our conversation in Telegram. In the message indicate the flag "from personal site", this will let me know from what source you got my contact',
         'hero_btn' => 'My Projects',
+
         'hero_find_me' => 'Find me on the other platforms',
         'footer_socials' => 'Find me on the other platforms',
         'about_heading' => 'About Me',
