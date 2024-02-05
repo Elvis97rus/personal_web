@@ -31,7 +31,7 @@
         'Contact' => "Связаться",
         'menu_language' => "Язык",
         'hero_heading' => 'Меня зовут Артем<br />Я ',
-        'hero_heading_last' => 'fullstack веб разработчик',
+        'hero_heading_last' => '<span class="rounded-md text-amber-600">fullstack разработчик</span>',
         'hero_body' => 'Я веб-разработчик с общим опытом работы 9+ лет. <br> Мой основой текущий стек - <span class="rounded-md text-amber-600">Laravel(PHP) + VueJs(JS)</span> <br>Готов предложить вам помощь с разработкой сайта или дать совет, при планировании создания сайта.  <br>Поэтому просто нажмите',
         'hero_body_last' => ' и давайте начнем наш разговор в Telegram. В сообщении укажите флаг "с личного сайта", это позволит мне знать, из какого источника вы получили мой контакт.',
         'hero_body_btn' => 'на кнопку',

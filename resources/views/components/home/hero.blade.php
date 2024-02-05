@@ -8,7 +8,7 @@
                         class="text-dark dark:text-gray-200 mb-6 text-4xl font-bold leading-snug sm:text-[42px] lg:text-[40px] xl:text-[42px] "
                     >
                         {!! __('home.hero_heading') !!}
-                        <span class="rounded-md text-amber-600"> {{ __('home.hero_heading_last') }}</span>.
+                        <span class="rounded-md text-amber-600"> {!! __('home.hero_heading_last') !!}</span>.
                     </h1>
                     <p class=" mb-8 max-w-[520px] text-base">
                         {!! __('home.hero_body') !!}

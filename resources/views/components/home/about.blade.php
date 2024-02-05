@@ -7,14 +7,14 @@
                     <div class="w-full px-3 sm:px-4 xl:w-1/2">
                         <div class="py-3 sm:py-4 hover:scale-105 transition-all duration-300 ease-in-out">
                             <img
-                                src="/img/me1.jpg"
+                                src="/img/me_1.png"
                                 alt=""
                                 class="w-full rounded-2xl"
                             />
                         </div>
                         <div class="py-3 sm:py-4 hover:scale-105 transition-all duration-300 ease-in-out">
                             <img
-                                src="/img/me2.jpg"
+                                src="/img/me_2.png"
                                 alt=""
                                 class="w-full rounded-2xl"
                             />
