@@ -33,9 +33,9 @@ class ExperienceResource extends Resource
 
                     Forms\Components\Group::make()
                         ->schema([
-                            Forms\Components\Textarea::make('stack')->rows(3),
-                            Forms\Components\Textarea::make('tasks')->rows(3),
-                            Forms\Components\Textarea::make('skills')->rows(3),
+                            Forms\Components\Textarea::make('stack')->rows(3)->columnSpanFull(),
+                            Forms\Components\Textarea::make('tasks')->rows(3)->columnSpanFull(),
+                            Forms\Components\Textarea::make('skills')->rows(3)->columnSpanFull(),
                             Forms\Components\TextInput::make('position'),
                             Forms\Components\TextInput::make('lang'),
                             Forms\Components\Toggle::make('active')
