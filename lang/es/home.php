@@ -32,7 +32,7 @@
         'menu_language' => "Idioma",
         'hero_heading' => 'Mi nombre es Artem<br />Soy ',
         'hero_heading_last' => 'programador web fullstack',
-        'hero_body' => 'Soy un desarrollador web con una experiencia total de más de 9 años. <br>Mi pila actual es Laravel(PHP) + VueJs(JS)<br>Listo para ofrecerle ayuda con el desarrollo de un sitio web o asesorarle a la hora de planificar la creación de un sitio web.<br>Así que haz clic en ',
+        'hero_body' => 'Soy un desarrollador web con una experiencia total de más de 9 años. <br>Mi pila actual es <span class="rounded-md text-amber-600">Laravel(PHP) + VueJs(JS)</span><br>Listo para ofrecerle ayuda con el desarrollo de un sitio web o asesorarle a la hora de planificar la creación de un sitio web.<br>Así que haz clic en ',
         'hero_body_last' => ' y comencemos nuestra conversación en Telegram. En el mensaje, incluye la bandera "de sitio web personal", esto me permitirá saber de qué fuente obtuviste mi contacto.',
         'hero_body_btn' => 'el botón',
         'hero_btn' => 'Ejemplos de trabajos',
