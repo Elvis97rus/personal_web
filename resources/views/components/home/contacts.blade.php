@@ -25,7 +25,7 @@
                         </div>
                         <div class="w-full">
                             <h4 class="dark:text-gray-200 text-dark mb-1 text-xl font-bold">{{ __('home.contact_body_email')}}</h4>
-                            <p class="dark:text-gray-300 text-body-color text-base">info@yourdomain.com</p>
+                            <p class="dark:text-gray-300 text-body-color text-base">info@artemsh-dev.ru</p>
                         </div>
                     </div>
                 </div>
